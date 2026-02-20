@@ -270,176 +270,466 @@
       </div>
 
       <div class="bg-white/5 p-10 rounded-3xl border border-white/10">
-        <h5 class="text-center text-[10px] font-bold text-red-500 uppercase tracking-[0.3em] mb-8">Flujo Técnico del Sistema</h5>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div class="flow-step flow-arrow">Ingesta Info.</div>
-          <div class="flow-step flow-arrow bg-red-900 border-red-500">Macro Agente</div>
-          <div class="flow-step flow-arrow">Ambientes Simulados</div>
-          <div class="flow-step border-2 border-red-600">Dashboard Resultados</div>
-        </div>
-      </div>
-    </section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICIO - Reporte de Consultoría Estratégica PI & IA 2026</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
-    <!-- SECCIÓN 05: CRONOGRAMA -->
-    <section class="report-section no-split">
-      <div class="section-header">
-        <span class="section-title">05. Hoja de Ruta de Simulación</span>
-        <span class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Ciclos de Desarrollo</span>
-      </div>
-      <div class="space-y-3">
-        <div class="flex gap-4 items-center p-4 bg-slate-50 rounded-xl border-l-4 border-slate-900">
-          <span class="w-20 font-black text-xs text-slate-400 uppercase">C1</span>
-          <p class="text-[11px] font-bold uppercase">Levantamiento de Requerimientos & Arquitectura</p>
-        </div>
-        <div class="flex gap-4 items-center p-4 bg-slate-50 rounded-xl border-l-4 border-slate-900">
-          <span class="w-20 font-black text-xs text-slate-400 uppercase">C2</span>
-          <p class="text-[11px] font-bold uppercase">Implementación Anteproyecto</p>
-        </div>
-        <div class="flex gap-4 items-center p-4 bg-slate-100 rounded-xl border-l-4 border-[#910a0a]">
-          <span class="w-20 font-black text-xs text-slate-400 uppercase">C3-4</span>
-          <p class="text-[11px] font-bold uppercase">Desarrollo de Prototipo Técnico</p>
-        </div>
-        <div class="flex gap-4 items-center p-4 bg-slate-50 rounded-xl border-l-4 border-slate-900">
-          <span class="w-20 font-black text-xs text-slate-400 uppercase">C5-8</span>
-          <p class="text-[11px] font-bold uppercase">Iteración sobre Prototipo (Testeo & Ajustes)</p>
-        </div>
-        <div class="flex gap-4 items-center p-4 bg-slate-50 rounded-xl border-l-4 border-slate-900">
-          <span class="w-20 font-black text-xs text-slate-400 uppercase">C9-10</span>
-          <p class="text-[11px] font-bold uppercase">Diseño UX-UI de Alta Fidelidad</p>
-        </div>
-        <div class="flex gap-4 items-center p-4 bg-slate-900 text-white rounded-xl">
-          <span class="w-20 font-black text-xs text-red-500 uppercase">C11-12</span>
-          <p class="text-[11px] font-bold uppercase">Implementación MVP Final & Lanzamiento</p>
-        </div>
-      </div>
-    </section>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- SECCIÓN 06: COMERCIAL -->
-    <section class="report-section no-split">
-      <div class="section-header">
-        <span class="section-title">06. Propuesta Comercial y Financiera</span>
-        <span class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Inversión Mensual</span>
-      </div>
-      
-      <div class="grid grid-cols-12 gap-8 mb-10">
-        <div class="col-span-12 lg:col-span-8 overflow-hidden rounded-xl border border-slate-200">
-          <table class="w-full pricing-table">
-            <thead>
-              <tr>
-                <th class="w-3/5">Concepto de Inversión</th>
-                <th class="w-1/5">%</th>
-                <th class="w-1/5 text-right">Monto (MXN)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="font-bold text-slate-800">Desarrollo de Software & Implementación</td>
-                <td>45%</td>
-                <td class="text-right font-medium text-slate-900">$17,016.81</td>
-              </tr>
-              <tr>
-                <td class="font-bold text-slate-800">Diseño de Producto & Project Management</td>
-                <td>20%</td>
-                <td class="text-right font-medium text-slate-900">$7,563.03</td>
-              </tr>
-              <tr>
-                <td class="font-bold text-slate-800">Diseño UI/UX Experience</td>
-                <td>20%</td>
-                <td class="text-right font-medium text-slate-900">$7,563.03</td>
-              </tr>
-              <tr>
-                <td class="font-bold text-slate-800">Servicios IT & Operaciones</td>
-                <td>15%</td>
-                <td class="text-right font-medium text-slate-900">$5,672.27</td>
-              </tr>
-              <tr class="bg-slate-50">
-                <td colspan="2" class="text-right font-bold text-[10px] uppercase text-slate-400">Inversión Neta Mensual</td>
-                <td class="text-right font-bold text-slate-900">$37,815.13</td>
-              </tr>
-              <tr class="bg-slate-50">
-                <td colspan="2" class="text-right font-bold text-[10px] uppercase text-slate-400">IVA (19%)</td>
-                <td class="text-right font-bold text-slate-900">$7,184.87</td>
-              </tr>
-              <tr class="bg-slate-900 text-white">
-                <td colspan="2" class="text-right font-black text-[13px] uppercase tracking-widest py-6">Total Inversión Bruta Mensual</td>
-                <td class="text-right font-black text-2xl py-6">$45,000.00</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-span-12 lg:col-span-4">
-          <div class="card bg-slate-50 h-full flex flex-col justify-center items-center">
-            <div class="w-full h-[220px]">
-              <canvas id="effortDistribution"></canvas>
-            </div>
-            <p class="text-[10px] font-bold text-slate-400 mt-6 uppercase tracking-widest">Distribución de Recursos</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-10 bg-slate-900 text-white rounded-2xl border border-white/10">
-        <h5 class="text-[11px] font-bold text-red-500 uppercase mb-6 tracking-widest">Condiciones Comerciales y Legales</h5>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div class="space-y-4">
-            <p class="text-[12px] font-bold text-slate-100 uppercase">Partes del Contrato</p>
-            <p class="text-[11px] text-slate-400 leading-relaxed">
-              La presente propuesta constituye la base de un acuerdo de servicios profesionales entre <strong>TICIO S.A.S</strong> y <strong>ZINSER TECHNOLOGIES S.A.</strong>
-            </p>
-          </div>
-          <div class="space-y-4">
-            <p class="text-[12px] font-bold text-slate-100 uppercase">Esquema de Contratación</p>
-            <ul class="text-[11px] text-slate-400 space-y-3 list-disc ml-5 leading-relaxed">
-              <li><strong>Contrato Mensual:</strong> El servicio se factura de forma mensual por concepto de desarrollo y mantenimiento operativo.</li>
-              <li><strong>Renovación Automática:</strong> El contrato se renovará automáticamente por periodos iguales salvo notificación previa de 15 días.</li>
-              <li><strong>Moneda de Cobro:</strong> Los valores están expresados y se cobrarán directamente en <strong>Pesos Mexicanos (MXN)</strong>.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PIE DE REPORTE -->
-    <footer class="flex justify-between items-center px-16 py-10 bg-white border-t border-slate-100 no-split">
-      <div class="text-left">
-        <p class="font-bold text-slate-900 tracking-[0.3em] mb-1 text-[10px]">TICIO: ESTRATEGIA • TECNOLOGÍA • LEGAL</p>
-        <p class="text-slate-400 tracking-tighter text-[9px]">BOGOTÁ, COLOMBIA • 2026 • ticiochatbot@gmail.com</p>
-      </div>
-      <img src="https://ticio.co/public/Branding/ticio.svg" alt="Ticio Logo" class="h-10 opacity-20 grayscale">
-    </footer>
-  </div>
-
-  <script>
-    window.onload = () => {
-      const effortCtx = document.getElementById('effortDistribution').getContext('2d');
-      new Chart(effortCtx, {
-        type: 'doughnut',
-        data: {
-          labels: ["Dev. (45%)", "PM (20%)", "UI/UX (20%)", "IT (15%)"],
-          datasets: [{
-            data: [45, 20, 20, 15],
-            backgroundColor: ['#910a0a', '#1e293b', '#f59e0b', '#e2e8f0'],
-            borderWidth: 0,
-            hoverOffset: 15
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          cutout: '80%',
-          plugins: {
-            legend: { 
-              position: 'bottom', 
-              labels: { 
-                boxWidth: 8, 
-                font: { size: 8, family: 'Plus Jakarta Sans' }, 
-                padding: 10,
-                color: '#94a3b8'
-              } 
-            }
-          }
+    <style>
+        :root {
+            --brand-red: #910a0a;
+            --brand-dark: #5a0606;
+            --risk-low: #22c55e;
+            --risk-mid: #f59e0b;
+            --risk-high: #910a0a;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-400: #94a3b8;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
         }
-      });
-    };
-  </script>
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #cbd5e1;
+            margin: 0;
+            padding: 40px 0;
+        }
+
+        #report-root {
+            width: 900px;
+            max-width: 95%;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 50px rgba(0,0,0,0.2);
+            color: var(--slate-800);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .report-section {
+            padding: 40px 60px;
+            border-bottom: 1px solid var(--slate-100);
+        }
+
+        .brand-header {
+            background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-red) 100%);
+            padding: 60px;
+            color: white;
+            border-bottom: 8px solid var(--slate-900);
+        }
+
+        .section-header {
+            border-bottom: 2px solid var(--brand-red);
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--slate-900);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            margin: 0 auto;
+        }
+
+        .plotly-container {
+            width: 100%;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .content-text {
+            font-size: 13px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .deliverable-card {
+            background: var(--slate-50);
+            border-left: 4px solid var(--brand-red);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            height: 100%;
+        }
+
+        .pricing-table th {
+            background-color: var(--slate-900);
+            color: white;
+            font-size: 11px;
+            text-transform: uppercase;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .pricing-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--slate-200);
+            font-size: 12px;
+        }
+
+        .pricing-table tr:nth-child(even) {
+            background-color: var(--slate-50);
+        }
+
+        .disclaimer-box {
+            font-size: 11px;
+            color: var(--slate-400);
+            border-top: 1px solid var(--slate-100);
+            padding-top: 10px;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        footer {
+            border-top: 1px solid var(--slate-200);
+            padding: 30px 60px;
+            font-size: 10px;
+            color: var(--slate-400);
+            text-transform: uppercase;
+            font-weight: 600;
+            background-color: white;
+        }
+
+        .no-split {
+            page-break-inside: avoid;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="report-root">
+        
+        <!-- CABECERA PRINCIPAL -->
+        <header class="brand-header flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div>
+                <p class="text-[11px] font-bold uppercase tracking-[0.5em] mb-4 opacity-70">Documento de Consultoría Técnica y Legal</p>
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">Debida Diligencia:<br>Propiedad Intelectual e IA</h1>
+                <p class="text-red-100 text-lg max-w-lg font-light leading-relaxed">Blindaje de activos creativos y optimización estratégica de flujos de trabajo.</p>
+            </div>
+            <div class="mt-10 md:mt-0">
+                <img src="https://ticio.co/public/Branding/ticio.svg" alt="Ticio" class="h-20 brightness-0 invert">
+            </div>
+        </header>
+
+        <!-- SECCIÓN 01: ESTADO IDEAL -->
+        <section class="report-section no-split">
+            <div class="section-header">
+                <span class="section-title">01. Estado Ideal de la Operación</span>
+                <span class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Visión Post-Consultoría</span>
+            </div>
+            
+            <div class="grid grid-cols-12 gap-12 mb-10">
+                <div class="col-span-7 space-y-5">
+                    <p class="content-text">
+                        Tras la auditoría e implementación del protocolo Ticio, la productora alcanzará un nivel de **Excelencia Operativa** donde el uso de herramientas de IA no compromete la exclusividad de los activos. Nuestra solución maximiza la registrabilidad bajo estándares nacionales e internacionales sin sacrificar la eficiencia, permitiendo que la tecnología actúe como un multiplicador de valor real.
+                    </p>
+                    <p class="content-text font-semibold text-slate-900 italic border-l-4 border-[#910a0a] pl-4">
+                        "El objetivo central es que cada activo generado posea una cadena de títulos robusta, garantizando una seguridad jurídica proyectada del 98% y una capacidad de exportación total alineada con marcos regulatorios globales."
+                    </p>
+                </div>
+                <div class="col-span-5 flex flex-col justify-center">
+                    <div class="space-y-4">
+                        <div class="p-5 bg-slate-900 text-white rounded-lg flex justify-between items-center border-l-4 border-[#910a0a] shadow-lg">
+                            <span class="text-[10px] uppercase font-bold opacity-60">Seguridad Jurídica</span>
+                            <span class="text-3xl font-black text-red-500">98%</span>
+                        </div>
+                        <div class="p-5 bg-[#910a0a] text-white rounded-lg flex justify-between items-center shadow-lg">
+                            <span class="text-[10px] uppercase font-bold opacity-60">Exportabilidad</span>
+                            <span class="text-3xl font-black">100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 gap-12 items-center border-t border-slate-100 pt-12">
+                <div class="col-span-6">
+                    <div class="chart-container">
+                        <canvas id="impactRadarChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-span-6">
+                    <h4 class="text-base font-extrabold text-[#910a0a] uppercase mb-4 tracking-widest text-left">Impacto Operativo Proyectado</h4>
+                    <p class="content-text mb-6">
+                        Establecemos los pilares para una producción automatizada pero jurídicamente protegida:
+                    </p>
+                    <div class="space-y-4 text-left">
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-[#910a0a] font-bold text-lg leading-none">01</span>
+                            <p class="text-[12px] font-semibold text-slate-700"><strong>Equilibrio Funcional:</strong> Estabilidad entre velocidad de producción, eficiencia en costos y control creativo absoluto.</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-[#910a0a] font-bold text-lg leading-none">02</span>
+                            <p class="text-[12px] font-semibold text-slate-700"><strong>Protección de PI:</strong> Máximo nivel de resguardo jurídico ante normativas de estándares internacionales de propiedad intelectual.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 02: ROADMAP -->
+        <section class="report-section bg-slate-900 text-white no-split">
+            <div class="section-header border-red-500">
+                <span class="section-title text-white">02. Hoja de Ruta de Implementación</span>
+            </div>
+            <div class="grid grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-center gap-6">
+                        <span class="bg-white text-slate-900 font-black text-sm w-12 h-12 flex items-center justify-center rounded-xl shadow-lg">W1</span>
+                        <div>
+                            <p class="font-bold text-base text-red-500 uppercase tracking-wide">Diagnóstico</p>
+                            <p class="text-[11px] text-slate-400 mt-1">Levantamiento de la "fotografía" actual del estado de las cosas.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <span class="bg-white text-slate-900 font-black text-sm w-12 h-12 flex items-center justify-center rounded-xl shadow-lg">W2</span>
+                        <div>
+                            <p class="font-bold text-base text-red-500 uppercase tracking-wide">Rediseño de Workflows</p>
+                            <p class="text-[11px] text-slate-400 mt-1">Esquematización técnica de flujos óptimos para monetización.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <span class="bg-red-600 text-white font-black text-sm w-12 h-12 flex items-center justify-center rounded-xl shadow-lg">W3</span>
+                        <div>
+                            <p class="font-bold text-base uppercase tracking-wide">Auditoría Legal</p>
+                            <p class="text-[11px] text-slate-100 mt-1">Definición de estrategia jurídica y cadena de títulos.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <span class="bg-white text-slate-900 font-black text-sm w-12 h-12 flex items-center justify-center rounded-xl shadow-lg">W4</span>
+                        <div>
+                            <p class="font-bold text-base text-red-500 uppercase tracking-wide">Gobernanza y Cierre</p>
+                            <p class="text-[11px] text-slate-400 mt-1">Capacitación y transferencia de conocimiento al equipo legal in-house.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/5 p-10 rounded-3xl border border-white/10 text-center">
+                    <div class="chart-container" style="height: 220px;">
+                        <canvas id="effortDoughnutChart"></canvas>
+                    </div>
+                    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-8">Asignación de Esfuerzo Estratégico</p>
+                </div>
+            </div>
+            <div class="disclaimer-box text-white opacity-50 mt-10">
+                Nota: Esta ruta de trabajo y asignación de esfuerzo es tentativa de lo que se planea investigar y diagnosticar durante la fase operativa.
+            </div>
+        </section>
+
+        <!-- SECCIÓN 03: INVENTARIO DE ENTREGABLES -->
+        <section class="report-section no-split">
+            <div class="section-header">
+                <span class="section-title">03. Inventario de Entregables por Etapa</span>
+                <span class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Productos de Consultoría</span>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-6 mt-4">
+                <!-- W1 Deliverables -->
+                <div class="deliverable-card">
+                    <h5 class="text-xs font-bold text-slate-900 uppercase mb-3">W1: Diagnóstico Corporativo</h5>
+                    <ul class="text-[11px] space-y-2 text-slate-600">
+                        <li>• <strong>Documento de Diagnóstico:</strong> Análisis de madurez digital y "fotografía" del estado actual.</li>
+                        <li>• <strong>Auditoría de Documentación:</strong> Revisión de activos existentes (ideas, frases, borradores).</li>
+                        <li>• <strong>Matriz de Riesgos Inicial:</strong> Identificación de fugas de PI en procesos actuales.</li>
+                    </ul>
+                </div>
+                
+                <!-- W2 Deliverables -->
+                <div class="deliverable-card">
+                    <h5 class="text-xs font-bold text-slate-900 uppercase mb-3">W2: Reingeniería de Flujos</h5>
+                    <ul class="text-[11px] space-y-2 text-slate-600">
+                        <li>• <strong>Flujos Esquematizados:</strong> Diagramas técnicos (estilo Miro) con puntos de intervención humana.</li>
+                        <li>• <strong>Historias de Usuario:</strong> Definición de roles y responsabilidades en el sistema creativo.</li>
+                        <li>• <strong>Anteproyecto de Desarrollo:</strong> Definición de stack tecnológico para agentes/asistentes IA.</li>
+                        <li>• <strong>Manual de Operación Técnica:</strong> Guía paso a paso del flujo de creación optimizado.</li>
+                    </ul>
+                </div>
+
+                <!-- W3 Deliverables -->
+                <div class="deliverable-card">
+                    <h5 class="text-xs font-bold text-slate-900 uppercase mb-3">W3: Auditoría Legal & PI</h5>
+                    <ul class="text-[11px] space-y-2 text-slate-600">
+                        <li>• <strong>Estrategia de Cadena de Títulos:</strong> Definición del argumento de defensa de titularidad.</li>
+                        <li>• <strong>Paquete Documental Legal:</strong> Minutas de contratos, cláusulas para clientes y proveedores.</li>
+                        <li>• <strong>Protocolo de Trazabilidad:</strong> Metodología de documentación de prompts como prueba jurídica.</li>
+                        <li>• <strong>Manual de Resolución de Disputas:</strong> Cláusulas favorables de arbitraje internacional.</li>
+                    </ul>
+                </div>
+
+                <!-- W4 Deliverables -->
+                <div class="deliverable-card">
+                    <h5 class="text-xs font-bold text-slate-900 uppercase mb-3">W4: Gobernanza & Transferencia</h5>
+                    <ul class="text-[11px] space-y-2 text-slate-600">
+                        <li>• <strong>Kit Legal Final:</strong> Consolidado de documentos maestros para el equipo legal in-house.</li>
+                        <li>• <strong>Programa de Capacitación:</strong> Sesiones de transferencia de conocimiento para AG Legal.</li>
+                        <li>• <strong>Guía de Agentes IA:</strong> Configuración de asistentes (Gems/GPTs) para validación de flujos.</li>
+                        <li>• <strong>Documento de Hallazgos Final:</strong> Resumen ejecutivo de la consultoría y cierre.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 04: PROPUESTA ECONÓMICA -->
+        <section class="report-section no-split">
+            <div class="section-header">
+                <span class="section-title">04. Propuesta Económica e Inversión</span>
+            </div>
+            <table class="w-full pricing-table border border-slate-200 rounded-xl overflow-hidden shadow-xl mb-12">
+                <thead>
+                    <tr>
+                        <th class="w-1/3">Módulo de Servicio</th>
+                        <th class="w-1/2">Entregables Estratégicos</th>
+                        <th class="w-1/6 text-right">Inversión</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-bold text-slate-800">Módulo 01: Diagnóstico & Riesgos</td>
+                        <td class="text-slate-500 italic text-[11px]">Documento de diagnóstico y auditoría de documentación existente (W1).</td>
+                        <td class="text-right font-bold text-slate-900">$ [Valor]</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-slate-800">Módulo 02: Reingeniería Operativa</td>
+                        <td class="text-slate-500 italic text-[11px]">Esquemas Miro, Historias de Usuario, Manual Técnico y Anteproyecto (W2).</td>
+                        <td class="text-right font-bold text-slate-900">$ [Valor]</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-slate-800">Módulo 03: Legal, PI & Gobernanza</td>
+                        <td class="text-slate-500 italic text-[11px]">Paquete legal, estrategia de títulos, capacitación y Kit Final (W3-W4).</td>
+                        <td class="text-right font-bold text-slate-900">$ [Valor]</td>
+                    </tr>
+                    <tr class="bg-slate-900 text-white">
+                        <td colspan="2" class="text-right font-bold text-[11px] uppercase py-5 px-8">Inversión Total Proyectada</td>
+                        <td class="text-right font-black text-lg py-5 px-8 border-l border-white/10">$ [Total]</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="p-8 bg-slate-50 rounded-2xl border border-slate-200 max-w-2xl">
+                <h5 class="text-[11px] font-bold text-slate-800 uppercase mb-4 tracking-wider">Condiciones Comerciales</h5>
+                <ul class="text-[10px] text-slate-500 space-y-3 list-disc ml-5 leading-relaxed">
+                    <li>Tiempo de ejecución: 30 días calendario tras aprobación oficial.</li>
+                    <li>Forma de pago: 50% anticipo, 50% contra entrega satisfactoria de kit final.</li>
+                    <li>Impuestos de ley vigentes aplicables según la jurisdicción comercial.</li>
+                    <li>Vigencia de la oferta: 15 días calendario a partir de la emisión.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PIE DE REPORTE -->
+        <footer class="flex justify-between items-center bg-white">
+            <div class="text-left">
+                <p class="font-bold text-slate-900 tracking-[0.3em] mb-1">TICIO: ESTRATEGIA • TECNOLOGÍA • LEGAL</p>
+                <p class="text-slate-400 tracking-tighter uppercase">BOGOTÁ, COLOMBIA • ticiochatbot@gmail.com • WWW.TICIO.CO • 2026</p>
+            </div>
+            <img src="https://ticio.co/public/Branding/ticio.svg" alt="Ticio Logo" class="h-10 opacity-20 grayscale">
+        </footer>
+    </div>
+
+    <script>
+        function wrap(labels, max = 16) {
+            return labels.map(l => {
+                if (typeof l !== 'string' || l.length <= max) return l;
+                const words = l.split(' ');
+                const res = [];
+                let current = words[0];
+                for(let i=1; i<words.length; i++) {
+                    if((current + ' ' + words[i]).length <= max) current += ' ' + words[i];
+                    else { res.push(current); current = words[i]; }
+                }
+                res.push(current);
+                return res;
+            });
+        }
+
+        window.onload = () => {
+            const radarCtx = document.getElementById('impactRadarChart').getContext('2d');
+            new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: wrap(["Velocidad Producción", "Seguridad Jurídica", "Eficiencia Costos", "Control Creativo", "Exportabilidad (PI)"]),
+                    datasets: [
+                        {
+                            label: 'Optimización Ticio (Estado Ideal)',
+                            data: [90, 90, 90, 90, 90], 
+                            backgroundColor: 'rgba(145, 10, 10, 0.25)',
+                            borderColor: '#910a0a',
+                            borderWidth: 4,
+                            pointBackgroundColor: '#910a0a',
+                            pointBorderColor: '#fff',
+                            pointRadius: 6,
+                            pointHoverRadius: 8
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { display: false },
+                            grid: { color: '#f1f5f9' },
+                            pointLabels: { 
+                                font: { size: 10, family: 'Plus Jakarta Sans', weight: '700' }, 
+                                color: '#64748b' 
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            const effortCtx = document.getElementById('effortDoughnutChart').getContext('2d');
+            new Chart(effortCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: wrap(["Diagnóstico", "Workflows", "Legal PI", "Gobernanza"]),
+                    datasets: [{
+                        data: [15, 35, 35, 15],
+                        backgroundColor: ['#f1f5f9', '#db4a4a', '#910a0a', '#1e293b'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '80%',
+                    plugins: {
+                        legend: { 
+                            position: 'bottom', 
+                            labels: { boxWidth: 8, font: { size: 8, family: 'Plus Jakarta Sans' }, padding: 15, color: '#f1f5f9' } 
+                        }
+                    }
+                }
+            });
+        };
+    </script>
 </body>
 </html>
