@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TICIO - Reporte de Consultoría Estratégica PI & IA 2026</title>
-
+  <title>TICIO - Propuesta Marketplace de Arte 2026 (Piloto)</title>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --brand-red: #910a0a;
       --brand-dark: #5a0606;
-      --risk-low: #22c55e;
-      --risk-mid: #f59e0b;
-      --risk-high: #910a0a;
       --slate-50: #f8fafc;
       --slate-100: #f1f5f9;
       --slate-200: #e2e8f0;
@@ -31,66 +26,60 @@
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: white;
+      background-color: #f8fafc;
       margin: 0;
       padding: 0;
     }
 
     #report-root {
       width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
+      max-width: 1100px;
+      margin: 40px auto;
       background-color: white;
+      box-shadow: 0 40px 100px -20px rgba(15, 23, 42, 0.1);
       color: var(--slate-800);
       overflow: hidden;
     }
 
     .report-section {
-      padding: 40px 60px;
+      padding: 60px 80px;
       border-bottom: 1px solid var(--slate-100);
     }
 
     .brand-header {
       background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-red) 100%);
-      padding: 60px;
+      padding: 100px 80px;
       color: white;
-      border-bottom: 8px solid var(--slate-900);
     }
 
     .section-header {
       border-bottom: 2px solid var(--brand-red);
-      padding-bottom: 8px;
-      margin-bottom: 24px;
+      padding-bottom: 12px;
+      margin-bottom: 40px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
     }
 
     .section-title {
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 800;
       color: var(--slate-900);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.15em;
     }
 
     .chart-container {
       position: relative;
       width: 100%;
       height: 350px;
-      margin: 0 auto;
-    }
-
-    .plotly-container {
-      width: 100%;
-      height: 400px;
-      margin: 0 auto;
     }
 
     .content-text {
-      font-size: 13.5px;
-      line-height: 1.7;
+      font-size: 14.5px;
+      line-height: 1.85;
       text-align: justify;
+      color: var(--slate-700);
     }
 
     .pricing-table th {
@@ -98,273 +87,247 @@
       color: white;
       font-size: 11px;
       text-transform: uppercase;
-      padding: 15px;
+      padding: 20px;
       text-align: left;
     }
 
     .pricing-table td {
-      padding: 15px;
+      padding: 20px;
       border-bottom: 1px solid var(--slate-200);
-      font-size: 12px;
+      font-size: 13.5px;
     }
 
-    .pricing-table tr:nth-child(even) {
-      background-color: var(--slate-50);
-    }
-
-    .deliverable-card {
-      background-color: var(--slate-50);
-      border: 1px solid var(--slate-100);
-      border-radius: 12px;
-      padding: 24px;
-      height: 100%;
-    }
-
-    .deliverable-title {
-      color: var(--brand-red);
-      font-weight: 800;
-      font-size: 13px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      border-bottom: 1px solid var(--slate-200);
-      padding-bottom: 8px;
+    .co-creation-box {
+      background: linear-gradient(to right, #f8fafc, #ffffff);
+      border-left: 4px solid #910a0a;
+      padding: 30px;
+      border-radius: 0 16px 16px 0;
+      box-shadow: 4px 4px 20px rgba(0,0,0,0.02);
     }
 
     footer {
-      border-top: 1px solid var(--slate-200);
-      padding: 30px 60px;
-      font-size: 10px;
-      color: var(--slate-400);
-      text-transform: uppercase;
-      font-weight: 600;
+      padding: 40px 80px;
       background-color: white;
+      border-top: 1px solid var(--slate-100);
     }
 
-    .no-split {
-      page-break-inside: avoid;
+    .status-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 99px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
   </style>
 </head>
-
 <body>
 
   <div id="report-root">
-
+    
     <!-- CABECERA -->
-    <header class="brand-header flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-      <div>
-        <p class="text-[11px] font-bold uppercase tracking-[0.5em] mb-4 opacity-70">Documento de Consultoría Técnica y
-          Legal</p>
-        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">Debida Diligencia:<br>Propiedad Intelectual e
-          IA</h1>
-        <p class="text-red-100 text-lg max-w-lg font-light leading-relaxed">Blindaje de activos creativos y optimización
-          estratégica de flujos de trabajo para <strong>Gaia</strong>.</p>
+    <header class="brand-header flex flex-col md:flex-row justify-between items-center">
+      <div class="max-w-2xl text-center md:text-left">
+        <p class="text-[11px] font-bold uppercase tracking-[0.5em] mb-4 opacity-70">Desarrollo de Piloto Estratégico & Co-creación Visual</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">Marketplace de Arte:<br>Arquitectura para Artistas</h1>
+        <p class="text-red-100 text-lg font-light leading-relaxed">Implementación de un MVP funcional con enfoque en identidad estética de alto nivel.</p>
       </div>
-      <div class="mt-10 md:mt-0">
-        <img src="https://ticio.co/public/Branding/ticio.svg" alt="Ticio" class="h-20 brightness-0 invert">
+      <div class="mt-12 md:mt-0">
+        <img src="https://ticio.co/public/Branding/ticio.svg" alt="Ticio" class="h-24 brightness-0 invert">
       </div>
     </header>
 
-
     <!-- SECCIÓN 01: ESTADO IDEAL -->
-    <section class="report-section no-split">
+    <section class="report-section">
       <div class="section-header">
-        <span class="section-title">01. Estado Ideal de la Operación</span>
-        <span class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Visión Post-Consultoría</span>
+        <span class="section-title">01. Visión del Piloto y Diseño Colaborativo</span>
+        <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Estrategia 2026</span>
       </div>
-
-      <div class="grid grid-cols-12 gap-12 mb-10">
-        <div class="col-span-7 space-y-5">
+      
+      <div class="grid grid-cols-12 gap-12 items-start mb-16">
+        <div class="col-span-7 space-y-8">
           <p class="content-text">
-            Tras la auditoría e implementación del protocolo Ticio, la productora alcanzará un nivel de Excelencia
-            Operativa donde el uso de herramientas de IA no compromete la exclusividad de los activos. Nuestra solución
-            maximiza la registrabilidad bajo estándares nacionales e internacionales sin sacrificar la eficiencia.
+            Este proyecto se concibe como un <span class="font-bold text-slate-900">Piloto Funcional</span> diseñado para validar el modelo de negocio con un riesgo operativo mínimo. Entendiendo la sensibilidad estética del sector, hemos definido un proceso de desarrollo donde la <span class="font-bold text-slate-900">Identidad Visual</span> nace de una mesa de co-creación constante con el cliente, asegurando que cada píxel refleje el valor artístico de la marca.
           </p>
-          <div class="p-5 bg-white border-l-4 border-[#910a0a] shadow-sm">
-            <p class="content-text font-semibold text-slate-900 italic">
-              "El objetivo central es que cada activo posea una cadena de títulos robusta, garantizando seguridad
-              jurídica y capacidad de exportación total."
+          
+          <div class="co-creation-box">
+            <h4 class="text-[#910a0a] font-black uppercase text-xs mb-3 tracking-widest">Protocolo de Comunicación Estética</h4>
+            <p class="content-text text-sm">
+              Implementaremos sesiones semanales de validación visual. Mientras TICIO garantiza la <span class="font-bold text-slate-900">arquitectura UX</span> (experiencia de usuario fluida y conversión), el cliente lidera la dirección de arte para asegurar que la plataforma sea un reflejo fiel de su curaduría.
             </p>
           </div>
         </div>
-        <div class="col-span-5 flex flex-col justify-center space-y-4">
-          <div class="p-5 bg-slate-900 text-white rounded-lg flex justify-between items-center shadow-lg">
-            <span class="text-[10px] uppercase font-bold opacity-60">Seguridad Jurídica</span>
-            <span class="text-3xl font-black text-red-500">98%</span>
-          </div>
-          <div class="p-5 bg-[#910a0a] text-white rounded-lg flex justify-between items-center shadow-lg">
-            <span class="text-[10px] uppercase font-bold opacity-60">Exportabilidad</span>
-            <span class="text-3xl font-black">100%</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-12 gap-12 items-center border-t border-slate-100 pt-12">
-        <div class="col-span-6">
+        <div class="col-span-5">
           <div class="chart-container">
             <canvas id="impactRadarChart"></canvas>
           </div>
+          <p class="text-[10px] text-center text-slate-400 mt-4 uppercase font-bold tracking-tighter">Balance Piloto: Diseño Co-creado vs Funcionalidad</p>
         </div>
-        <div class="col-span-6">
-          <h4 class="text-base font-extrabold text-[#910a0a] uppercase mb-4 tracking-widest">Impacto Operativo
-            Proyectado</h4>
-          <div class="space-y-4">
-            <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
-              <span class="text-[#910a0a] font-bold text-lg leading-none">01</span>
-              <p class="text-[12px] font-semibold text-slate-700"><strong>Equilibrio Funcional:</strong> Estabilidad
-                entre velocidad de producción y control creativo.</p>
+      </div>
+
+      <div class="grid grid-cols-3 gap-8">
+        <div class="p-8 border border-slate-100 rounded-3xl bg-slate-50 transition-all hover:shadow-lg">
+          <h4 class="text-xs font-black text-[#910a0a] uppercase mb-3">Mesa de Diseño</h4>
+          <p class="text-[12px] text-slate-600 leading-relaxed">Comunicación síncrona para la definición de la identidad visual y manual de marca colaborativo.</p>
+        </div>
+        <div class="p-8 border border-slate-100 rounded-3xl bg-slate-50 transition-all hover:shadow-lg">
+          <h4 class="text-xs font-black text-[#910a0a] uppercase mb-3">Simplicidad MVP</h4>
+          <p class="text-[12px] text-slate-600 leading-relaxed">Enfoque en un producto piloto que sea sencillo, funcional y optimizado para la transacción rápida.</p>
+        </div>
+        <div class="p-8 border border-slate-100 rounded-3xl bg-slate-50 transition-all hover:shadow-lg">
+          <h4 class="text-xs font-black text-[#910a0a] uppercase mb-3">Stack Eficiente</h4>
+          <p class="text-[12px] text-slate-600 leading-relaxed">FastAPI + React para una infraestructura que escala orgánicamente desde el primer día.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 02: ROADMAP -->
+    <section class="report-section bg-slate-900 text-white">
+      <div class="section-header border-red-500">
+        <span class="section-title text-white">02. Hoja de Ruta (8 Semanas de Ejecución)</span>
+        <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Cronograma Técnico</span>
+      </div>
+      
+      <div class="grid grid-cols-12 gap-12 items-center">
+        <div class="col-span-7 space-y-10">
+          <div class="flex gap-8 items-start">
+            <div class="bg-white text-slate-900 font-black px-5 py-3 rounded-xl text-sm shadow-xl">W1-2</div>
+            <div>
+              <p class="font-bold text-red-500 uppercase text-xs tracking-widest mb-2">Co-creación de Identidad</p>
+              <p class="text-slate-400 text-[13px] leading-relaxed">Talleres de definición estética, manual de marca colaborativo y aprobación de UI visual.</p>
             </div>
-            <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
-              <span class="text-[#910a0a] font-bold text-lg leading-none">02</span>
-              <p class="text-[12px] font-semibold text-slate-700"><strong>Protección de PI:</strong> Máximo nivel de
-                resguardo ante normativas globales.</p>
+          </div>
+          <div class="flex gap-8 items-start">
+            <div class="bg-white text-slate-900 font-black px-5 py-3 rounded-xl text-sm shadow-xl">W3-6</div>
+            <div>
+              <p class="font-bold text-red-500 uppercase text-xs tracking-widest mb-2">Desarrollo Piloto (Back & Front)</p>
+              <p class="text-slate-400 text-[13px] leading-relaxed">Construcción del marketplace bajo stack FastAPI/React e integración transaccional con Treli.</p>
             </div>
+          </div>
+          <div class="flex gap-8 items-start">
+            <div class="bg-red-600 text-white font-black px-5 py-3 rounded-xl text-sm shadow-xl">W7-8</div>
+            <div>
+              <p class="font-bold text-white uppercase text-xs tracking-widest mb-2">QA, Cloud & Lanzamiento</p>
+              <p class="text-slate-100 text-[13px] leading-relaxed">Pruebas de flujo de pago, despliegue cloud optimizado y capacitación administrativa.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-5 bg-white/5 p-10 rounded-[40px] border border-white/10 text-center">
+          <div class="chart-container" style="height: 250px;">
+            <canvas id="effortDoughnutChart"></canvas>
+          </div>
+          <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-10">Balance de Carga de Trabajo</p>
+          <div class="mt-4 text-[10px] text-slate-500 italic opacity-60">
+            Nota: Esta gráfica es tentativa de lo que se planea investigar y diagnosticar durante la fase de auditoría operativa estratégica.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN 02: MATRIZ DE RIESGO -->
-    <section class="report-section bg-slate-50 no-split">
+    <!-- SECCIÓN 03: PROPUESTA ECONÓMICA -->
+    <section class="report-section">
       <div class="section-header">
-        <span class="section-title">02. Matriz de Vulnerabilidad Operativa</span>
-        <span class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Análisis de Riesgos</span>
+        <span class="section-title">03. Inversión y Términos Comerciales</span>
       </div>
-      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xl mb-8">
-        <div id="riskHeatmap" class="plotly-container"></div>
+      
+      <div class="mb-12">
+        <table class="w-full pricing-table border border-slate-200 rounded-2xl overflow-hidden shadow-xl">
+          <thead>
+            <tr>
+              <th class="w-2/3">Rubro de Consultoría & Desarrollo Piloto</th>
+              <th class="text-right">Inversión (COP)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-bold">Módulo 01: Mesa de Co-creación de Identidad <span class="text-slate-400 font-normal block text-[11px] mt-1">Definición estética colaborativa + Manual de marca técnico</span></td>
+              <td class="text-right font-mono font-bold">$1,500,000</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Módulo 02: Desarrollo Piloto Funcional <span class="text-slate-400 font-normal block text-[11px] mt-1">Estructura FastAPI/React + Integración Treli + UX TICIO</span></td>
+              <td class="text-right font-mono font-bold">$3,500,000</td>
+            </tr>
+            <tr>
+              <td class="font-bold">Módulo 03: Despliegue & Optimización Cloud <span class="text-slate-400 font-normal block text-[11px] mt-1">Configuración de servidor, QA y puesta en producción</span></td>
+              <td class="text-right font-mono font-bold">$1,000,000</td>
+            </tr>
+            <tr class="bg-slate-900 text-white">
+              <td class="font-black uppercase py-8 px-6 text-sm tracking-widest">Inversión Total Proyecto Piloto</td>
+              <td class="text-right font-black text-2xl py-8 px-6">$6,000,000</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="grid grid-cols-3 gap-6">
-        <div class="p-5 bg-white border-b-4 border-green-500 rounded-xl text-center shadow-sm">
-          <h5 class="text-[10px] font-extrabold text-slate-400 uppercase">Pre-Producción</h5>
-          <p class="text-sm font-bold text-green-600 uppercase">Riesgo Bajo</p>
+
+      <div class="grid grid-cols-2 gap-8">
+        <div class="p-8 bg-slate-50 rounded-3xl border border-slate-200 shadow-sm">
+          <h5 class="text-xs font-black text-slate-800 uppercase mb-5 tracking-wider flex items-center gap-3">
+            <span class="w-3 h-3 bg-red-600 rounded-full animate-pulse"></span> Cuota de Mantenimiento Híbrida
+          </h5>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center pb-3 border-b border-slate-200">
+              <span class="text-[12px] font-bold text-slate-700">Mantenimiento IT (Fijo)</span>
+              <span class="text-[12px] text-slate-500">Soporte y estabilidad</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-[12px] font-bold text-slate-700">Consumo Cloud (Variable)</span>
+              <span class="text-[12px] text-slate-500">Puntaje por consumo/tráfico</span>
+            </div>
+            <p class="text-[10px] text-slate-400 leading-relaxed mt-4">El costo variable asegura que el cliente solo pague por el uso real de computación y almacenamiento de activos visuales.</p>
+          </div>
         </div>
-        <div class="p-5 bg-white border-b-4 border-red-600 rounded-xl text-center shadow-sm">
-          <h5 class="text-[10px] font-extrabold text-slate-400 uppercase">Generación</h5>
-          <p class="text-sm font-bold text-red-600 uppercase">Riesgo Crítico</p>
+        <div class="p-8 bg-slate-900 text-white rounded-3xl shadow-lg">
+          <h5 class="text-xs font-black text-red-500 uppercase mb-5 tracking-wider">Marco de Licenciamiento</h5>
+          <ul class="text-[11px] space-y-4 opacity-90 list-disc ml-5 leading-relaxed">
+            <li><span class="font-bold">Operación Comercial:</span> El cliente tiene derecho pleno para la explotación comercial del software piloto.</li>
+            <li><span class="font-bold">Sin Derecho de Reventa:</span> No se permite la comercialización o reventa de la base de código a terceros.</li>
+            <li><span class="font-bold">Derecho de Preferencia:</span> TICIO mantiene la prioridad para la ejecución de futuras actualizaciones y escalabilidad.</li>
+            <li><span class="font-bold">Titularidad:</span> Software desarrollado bajo estándares internacionales de PI para uso exclusivo del cliente.</li>
+          </ul>
         </div>
-        <div class="p-5 bg-white border-b-4 border-amber-500 rounded-xl text-center shadow-sm">
-          <h5 class="text-[10px] font-extrabold text-slate-400 uppercase">Post-Producción</h5>
-          <p class="text-sm font-bold text-amber-600 uppercase">Riesgo Medio</p>
+      </div>
+
+      <div class="mt-10 p-8 bg-slate-100 rounded-3xl border border-slate-200">
+        <h5 class="text-[10px] font-black uppercase mb-3 tracking-widest">Condiciones Generales</h5>
+        <div class="grid grid-cols-2 gap-8 text-[11px] text-slate-600 leading-relaxed">
+          <ul class="space-y-2 list-disc ml-5">
+            <li>Forma de pago: 50% anticipo, 50% contra entrega de manuales.</li>
+            <li>Tiempo de ejecución: 60 días calendario (2 meses).</li>
+          </ul>
+          <ul class="space-y-2 list-disc ml-5">
+            <li>No incluye facturación directa de Cloud Providers (AWS/GCP).</li>
+            <li>Mesa de diseño requiere disponibilidad síncrona del cliente.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN 03: ENTREGABLES -->
-    <section class="report-section no-split">
-      <div class="section-header">
-        <span class="section-title">03. 📋 Entregables del Proyecto (Hoja de Ruta de 1 Mes)</span>
-        <span class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Cronograma de 4 Fases</span>
+    <!-- FOOTER -->
+    <footer class="flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="text-center md:text-left">
+        <p class="font-extrabold text-slate-900 tracking-[0.4em] mb-2">TICIO: ESTRATEGIA • TECNOLOGÍA • LEGAL</p>
+        <p class="text-slate-400 text-[10px] uppercase font-bold tracking-widest">Bogotá, Colombia • 2026 • ticiochatbot@gmail.com</p>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        <!-- Fase 1 -->
-        <div class="deliverable-card">
-          <h5 class="deliverable-title">1. Fase de Diagnóstico</h5>
-          <ul class="space-y-3 text-[12px] text-slate-600">
-            <li><strong>• Documento de Diagnóstico:</strong> Una "fotografía" del estado actual de los procesos de la
-              empresa.</li>
-            <li><strong>• Análisis de Situación:</strong> Identificación de ideas embrionarias vs. avances técnicos,
-              evaluando riesgos de gobernanza y propiedad intelectual.</li>
-          </ul>
-        </div>
-
-        <!-- Fase 2 -->
-        <div class="deliverable-card">
-          <h5 class="deliverable-title">2. Rediseño de Workflows</h5>
-          <ul class="space-y-3 text-[12px] text-slate-600">
-            <li><strong>• Esquemas en Miro:</strong> Diagramas visuales de los nuevos flujos de trabajo optimizados.
-            </li>
-            <li><strong>• Historias de Usuario / Manual:</strong> Documentación técnica que define el punto exacto de
-              intervención humana para garantizar la autoría legal.</li>
-            <li><strong>• Anteproyecto de Desarrollo:</strong> Definición del stack tecnológico e infraestructura (ej.
-              servidores propios para modelos open source).</li>
-          </ul>
-        </div>
-
-        <!-- Fase 3 -->
-        <div class="deliverable-card">
-          <h5 class="deliverable-title">3. Auditoría Legal y Cadena de Título</h5>
-          <ul class="space-y-3 text-[12px] text-slate-600">
-            <li><strong>• Kit de Documentos Legales:</strong> Borradores de contratos, minutas y cláusulas de resolución
-              de disputas.</li>
-            <li><strong>• Estrategia de PI:</strong> Ruta para el registro de derechos (copyright) en USA, China, Europa
-              y Colombia.</li>
-            <li><strong>• Estrategia de Defensa:</strong> Argumentos legales para demostrar intervención humana
-              sustancial ante litigios.</li>
-          </ul>
-        </div>
-
-        <!-- Fase 4 -->
-        <div class="deliverable-card">
-          <h5 class="deliverable-title">4. Gobernanza y Transferencia</h5>
-          <ul class="space-y-3 text-[12px] text-slate-600">
-            <li><strong>• Capacitación Corporativa:</strong> Sesiones para el equipo directivo y operativo sobre el
-              nuevo flujo.</li>
-            <li><strong>• Manual para Equipo Legal In-house:</strong> Instrucciones para que el área legal de AG opere y
-              actualice contratos de forma autónoma.</li>
-          </ul>
-        </div>
-
+      <div class="flex gap-4">
+        <span class="status-badge bg-slate-900 text-white shadow-md">Proyecto Piloto</span>
+        <span class="status-badge bg-red-100 text-red-700 font-black">TICIO Certified</span>
       </div>
-    </section>
-
-    <!-- SECCIÓN 04: PROPUESTA ECONÓMICA -->
-    <section class="report-section no-split">
-      <div class="section-header">
-        <span class="section-title">04. Inversión Estratégica</span>
-      </div>
-      <table class="w-full pricing-table border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-        <thead>
-          <tr>
-            <th class="w-2/3">Módulo de Servicio</th>
-            <th class="w-1/3 text-right">Inversión</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="font-bold text-slate-800 uppercase text-[10px]">Módulo 01: Diagnóstico & Riesgos (W1)</td>
-            <td class="text-right font-bold text-slate-900">$1,000,000 COP</td>
-          </tr>
-          <tr>
-            <td class="font-bold text-slate-800 uppercase text-[10px]">Módulo 02: Reingeniería de Flujos (W2)</td>
-            <td class="text-right font-bold text-slate-900">$3,000,000 COP</td>
-          </tr>
-          <tr>
-            <td class="font-bold text-slate-800 uppercase text-[10px]">Módulo 03: Auditoría Legal & PI (W3-W4)</td>
-            <td class="text-right font-bold text-slate-900">$2,000,000 COP</td>
-          </tr>
-          <tr class="bg-slate-900 text-white">
-            <td class="text-right font-bold text-[11px] uppercase py-5 px-8 tracking-widest">Inversión Total Proyectada
-            </td>
-            <td class="text-right font-black text-lg py-5 px-8 border-l border-white/10">$6,000,000 COP</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- PIE DE PÁGINA -->
-    <footer class="flex justify-between items-center">
-      <div class="text-left">
-        <p class="font-bold text-slate-900 tracking-[0.3em] mb-1">TICIO: ESTRATEGIA • TECNOLOGÍA • LEGAL</p>
-        <p class="text-slate-400 tracking-tighter lowercase">BOGOTÁ, COLOMBIA • ticiochatbot@gmail.com • 2026</p>
-      </div>
-      <img src="https://ticio.co/public/Branding/ticio.svg" alt="Ticio Logo" class="h-10 opacity-20 grayscale">
     </footer>
   </div>
 
   <script>
-    function wrap(labels, max = 16) {
+    function wrapLabels(labels, max = 16) {
       return labels.map(l => {
-        if (typeof l !== 'string' || l.length <= max) return l;
+        if (l.length <= max) return l;
         const words = l.split(' ');
         const res = [];
-        let current = words[0];
-        for (let i = 1; i < words.length; i++) {
-          if ((current + ' ' + words[i]).length <= max) current += ' ' + words[i];
-          else { res.push(current); current = words[i]; }
+        let cur = words[0];
+        for(let i=1; i<words.length; i++) {
+          if((cur + ' ' + words[i]).length <= max) cur += ' ' + words[i];
+          else { res.push(cur); cur = words[i]; }
         }
-        res.push(current);
+        res.push(cur);
         return res;
       });
     }
@@ -375,48 +338,65 @@
       new Chart(radarCtx, {
         type: 'radar',
         data: {
-          labels: wrap(["Velocidad Producción", "Seguridad Jurídica", "Eficiencia Costos", "Control Creativo", "Exportabilidad"]),
+          labels: wrapLabels(["Identidad Visual (Co-creada)", "Arquitectura UX (TICIO)", "Eficiencia MVP", "Seguridad Treli", "Escalabilidad Cloud"]),
           datasets: [{
-            label: 'Estado Ideal',
-            data: [90, 95, 85, 90, 100],
+            label: 'Piloto TICIO',
+            data: [95, 95, 95, 95, 95],
             backgroundColor: 'rgba(145, 10, 10, 0.2)',
             borderColor: '#910a0a',
-            borderWidth: 3,
-            pointBackgroundColor: '#910a0a'
+            borderWidth: 4,
+            pointBackgroundColor: '#910a0a',
+            pointRadius: 6,
+            pointHoverRadius: 8
           }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          scales: { r: { beginAtZero: true, max: 100, ticks: { display: false } } },
+          scales: {
+            r: {
+              beginAtZero: true,
+              max: 100,
+              ticks: { display: false },
+              grid: { color: '#e2e8f0' },
+              pointLabels: { font: { size: 9, family: 'Plus Jakarta Sans', weight: '700' }, color: '#475569' }
+            }
+          },
           plugins: { legend: { display: false } }
         }
       });
 
-      // Heatmap Risk
-      const zValues = [[2, 5, 8], [6, 9, 10], [4, 6, 7]];
-      const xLabels = ['Texto / LLM', 'Imagen Gen.', 'Video AI'];
-      const yLabels = ['Pre-Prod.', 'Prod.', 'Post-Prod.'];
-
-      Plotly.newPlot('riskHeatmap', [{
-        z: zValues,
-        x: xLabels,
-        y: yLabels,
-        type: 'heatmap',
-        colorscale: [[0, '#22c55e'], [0.5, '#f59e0b'], [1, '#910a0a']],
-        showscale: false,
-        xgap: 4,
-        ygap: 4
-      }], {
-        font: { family: 'Plus Jakarta Sans', size: 10, color: '#64748b' },
-        margin: { t: 10, r: 10, b: 40, l: 80 },
-        paper_bgcolor: 'rgba(0,0,0,0)',
-        plot_bgcolor: 'rgba(0,0,0,0)',
-        xaxis: { fixedrange: true },
-        yaxis: { fixedrange: true }
-      }, { responsive: true, displayModeBar: false });
+      // Doughnut Chart
+      const effortCtx = document.getElementById('effortDoughnutChart').getContext('2d');
+      new Chart(effortCtx, {
+        type: 'doughnut',
+        data: {
+          labels: wrapLabels(["Mesa de Identidad", "Dev Piloto", "QA & Payments", "Cloud Launch"]),
+          datasets: [{
+            data: [30, 45, 15, 10],
+            backgroundColor: ['#e2e8f0', '#910a0a', '#5a0606', '#1e293b'],
+            borderWidth: 0,
+            hoverOffset: 15
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '80%',
+          plugins: {
+            legend: { 
+              position: 'bottom', 
+              labels: { 
+                boxWidth: 10, 
+                font: { size: 9, family: 'Plus Jakarta Sans', weight: '600' }, 
+                padding: 20, 
+                color: '#94a3b8' 
+              } 
+            }
+          }
+        }
+      });
     };
   </script>
 </body>
-
 </html>
